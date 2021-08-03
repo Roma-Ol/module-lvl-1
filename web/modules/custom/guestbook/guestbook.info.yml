@@ -1,0 +1,6 @@
+name: Guestbook
+description: This outstanding module was made to create a page with guest book, where users will be able to leave their
+  feedbacks, comments, share their experience and wishes.
+type: module
+core_version_requirement: ^8.8.0 || ^9
+version: 1.0
