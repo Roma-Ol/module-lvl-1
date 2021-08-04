@@ -1,0 +1,79 @@
+<div class="guestbook-page-wrapper">
+    <div class="form-wrapper-first">
+        <div class="form-wrapper-second">
+            <p class="table-header">Please, fill this form</p>
+            {{ form }}
+        </div>
+    </div>
+
+    <div class="table-wrapper-first">
+        <div class="table-wrapper-second">
+            <p class="table-header">List of the guests</p>
+            {% for i in content %}
+                <div class="db-table-content">
+                    <div class="profile-author-info-block">
+                        <div class="profile-pic">
+{#                            {% if i.profilePic.data %}#}
+{#                                <a data-fslightbox="gallery" href="{{ i.profilePic.url }}">#}
+{#                                    <img src="{{ i.profilePic.url }}" alt="img">#}
+{#                                </a>#}
+{#                            {% else %}#}
+{#                                <img src="/modules/custom/romaroma/media/defaultImage.jpg" alt="xz">#}
+{#                            {% endif %}#}
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-user-name profile-info-row">
+                                {{ 'Name: '|trans }}
+
+                                {{ i.name }}
+                            </div>
+                            <div class="profile-user-email profile-info-row">
+                                {{ 'Mail: '|trans }}
+
+                                <a href="mailto:{{ i.email }}">{{ i.email }}</a>
+                            </div>
+                            <div class="profile-user-phone-number profile-info-row">
+                                {{ 'Tel: '|trans }}
+
+                                <a href="tel:{{ i.tel }}">{{ i.tel }}</a>
+                            </div>
+
+                            <div class="administerButtons">
+                                {% if user.hasPermission('administer nodes') %}
+                                    <div class="interact-buttons">
+                                        <div class="button-wrapper-div">
+                                            <a href='/romaroma/EditGuest/{{ i.id }}' class="db-table-button db-table-button-edit use-ajax" data-dialog-type="modal">Edit this guest</a>
+                                        </div>
+                                        <div class="button-wrapper-div">
+                                            <a href='/romaroma/deleteGuest/{{ i.id }}' class="db-table-button db-table-button-delete use-ajax" data-dialog-type="modal">Delete this guest</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-feedback-block">
+                        <div class="feedback-content">
+                            <div class="feedback-text">
+                                {{ i.feedback__value }}
+                            </div>
+                            <div class="feedbackPic">
+{#                                {% if i.feedbackPic.data %}#}
+{#                                    <a data-fslightbox="gallery" href="{{ i.feedbackPic.url }}">#}
+{#                                        <img src="{{ i.feedbackPic.url }}" alt="img">#}
+{#                                    </a>#}
+{#                                {% endif %}#}
+                            </div>
+                            <div class="feedback-date-wrapper">
+                                <div class="feedback-date">
+                                    {{ 'Publication date: '|trans }} {{ i.date }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>

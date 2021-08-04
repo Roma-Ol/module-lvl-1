@@ -1,0 +1,6 @@
+romaroma.form:
+  path: '/guestbook/super'
+  defaults:
+    _controller: '\Drupal\guestbook\Controller\FirstPageController::report'
+  requirements:
+    _permission: 'access content'

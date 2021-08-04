@@ -22,8 +22,8 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *     "access" = "Drupal\Core\Entity\EntityAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\Core\Entity\ContentEntityForm",
- *       "edit" = "Drupal\Core\Entity\ContentEntityForm",
- *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "edit" = "Drupal\guestbook\Form\EventForm",
+ *       "delete" = "Drupal\guestbook\Form\EventForm",
  *     },
  *     "permission_provider" = "Drupal\entity\EntityPermissionProvider",
  *     "route_provider" = {
@@ -32,11 +32,11 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *   },
  *   links = {
  *     "canonical" = "/guest/{guest}",
- *     "add-form" = "/admin/content/guestbook/add",
- *     "edit-form" = "/admin/content/guestbook/manage/{guest}",
- *     "delete-form" = "/admin/content/guestbook/manage/{guest}/delete",
+ *     "add-form" = "/guestbook",
+ *     "edit-form" = "/guestbook/edit/{guest}",
+ *     "delete-form" = "/guestbook/delete/{guest}",
  *   },
- *   admin_permission = "administer nodes",
+ *   admin_permission = "admintister guestbook",
  * )
  */
 class Guestbook extends ContentEntityBase {
